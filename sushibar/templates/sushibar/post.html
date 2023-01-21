@@ -1,0 +1,19 @@
+{% extends 'sushibar/base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <h2>{{title}}</h2>
+    <table class="catalog">
+        <tr>
+            {% if post.photo %}
+            <td><img src="{{post.photo.url}}"></td>
+            {% endif %}
+            <td>
+                <h3>{{post.title}}</h3>
+                <p>{{post.content|linebreaks}}</p>
+            </td>
+        </tr>
+    </table>
+</main>
+{% endblock %}

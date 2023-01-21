@@ -1,0 +1,35 @@
+{% extends 'sushibar/base.html' %}
+{% load static %}
+
+{% block content %}
+<p>У нас вы найдете:
+<ul>
+    <li>сашими,</li>
+    <li>суши,</li>
+    <li>роллы,</li>
+    <li>соусы,</li>
+    <li><strong>горячие блюда</strong>,</li>
+    <li>также&nbsp;&mdash; безалкогольные напитки
+        <img src="{% static 'sushibar/images/drink.jpg' %}">.
+        <ul>
+            <li>чай,</li>
+            <li>кофе,</li>
+            <li>мате.</li>
+        </ul>
+    </li>
+</ul>
+</p>
+<p>Участвуйте в нашей рекламной акции!</p>
+<ol>
+    <li>Посетите наш суши-бар между 16:00
+        и 19:00.</li>
+</ol>
+<div class=" advertising">
+    <div>Время действительно только для будних дней.</div>
+    <div>В выходные&nbsp;&mdash; с 14:00 до 20:00.</div>
+</div>
+<ol start="2">
+    <li>Купите три суши или три ролла.</li>
+    <li>Получите четвертый <span class="bigger">в подарок!</span></li>
+</ol>
+{% endblock %}

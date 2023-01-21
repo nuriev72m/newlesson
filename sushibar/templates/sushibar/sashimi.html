@@ -1,0 +1,46 @@
+{% extends 'sushibar/base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <h2>{{title}}</h2>
+    <table class="catalog">
+        {% for p in posts %}
+        <tr>
+            {% if p.photo %}
+            <td><img src="{{p.photo.url}}"></td>
+            {% endif %}
+            <td>
+                <h3>{{p.title}}</h3>
+                <p>{% autoescape on %}
+                    {{p.content|linebreaks|truncatewords:50}}
+                    {% endautoescape %}
+                </p>
+                <p><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</main>
+<!--<main>
+    <h2>Сашими</h2>
+    <table class="catalog">
+        <tr>
+            <td><img src="../images/sashimi_unagi.jpg"></td>
+            <td>
+                <h3>Унаги</h3>
+                <p>Копченый угорь, свежий салат, кунжут и
+                    одноименный соус.</p>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="../images/sashimi_hamachi.jpg"></td>
+            <td>
+                <h3>Хамачи</h3>
+                <p>Готовится из желтохвоста, лакедры,
+                    зеленого лука, риса и дайкона.</p>
+            </td>
+        </tr>
+    </table>
+</main>-->
+{% endblock %}

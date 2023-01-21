@@ -1,0 +1,70 @@
+{% load static %}
+{% load sushibar_tags %}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'sushibar/css/styles.css' %}" rel="stylesheet" />
+    <meta name="description" content="Суши-бар Йокогама.
+		Сашими, суши, роллы, напитки">
+    <meta name="keywords" content="суши-бар, Йокогама, сашими, суши, ролл">
+    <meta name="author" content="Читатель">
+    <meta name="generator" content="Notepad++">
+</head>
+
+<body>
+    <header>
+
+        <div class="pos1"><img src="{% static 'sushibar/images/sushi.jpg' %}" /></div>
+        <div class="pos2">
+            <h1>Йокогама</h1>
+        </div>
+        <div class="pos3">
+            <h1>Суши-бар</h1>
+        </div>
+    </header>
+    {% block mainmenu %}
+    <nav>
+        {% if cat_selected == 0 %}
+        <div>Главная</div>
+        {% else %}
+        <a href="{% url 'home' %}">Главная</a>
+        {% endif %}
+
+        {% show_categories %}
+
+        <!--{% for c in categories %}
+        {% if c.pk == cat_selected %}
+        <div>{{c.name}}</div>
+        {% else %}
+        <a href="{{ c.get_absolute_url }}">{{c.name}}</a>
+        {% endif %}
+        {% endfor %}-->
+        <!--{% for m in menu %}
+        {% if forloop.first %}
+        <a href="{% url m.url_name %}">{{m.title}}</a>
+        {% else %}
+        <a href="{% url m.url_name %}">{{m.title}}</a>
+        {% endif%}
+        {% endfor %}-->
+    </nav>
+    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="pos4">
+            <p class="greeting">Ждем вас!</p>
+            <address>Наш адрес: г. Тюмень, ул. Стахановцев, 1.</address>
+            <p>&copy; читатели книги &laquo;HTML и CSS&raquo;.<br>Все права защищены.</p>
+        </div>
+        <div class="pos5">
+            <p><a href="{% static 'sushibar/pages/order.html' %}">Закажите столик</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
